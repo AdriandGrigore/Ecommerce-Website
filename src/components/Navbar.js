@@ -50,7 +50,7 @@ function Navbar() {
                     id="responsive-navbar-nav"
                 >
                     <Nav
-                        className="ms-0 ms-md-3 mt-0 mt-md-3 fw-bold"
+                        className="ms-0 ms-md-3 fs-5 fw-bold"
                     >
                         {
                             navbarLinks.map((link, index) => {
@@ -58,7 +58,7 @@ function Navbar() {
                                     <Nav.Link
                                         key={index}
                                         href={link.href}
-                                        className='ms-0 ms-md-5 py-3 py-md-2'
+                                        className='ms-0 ms-md-4 py-3 py-md-2'
                                     >
                                         {link.name}
                                     </Nav.Link>
@@ -78,7 +78,7 @@ function Navbar() {
                             className='text-secondary fs-3'
                         />
                         <span
-                            className='position-absolute top-25 start-75 translate-middle text-white bg-primary px-1 rounded-circle'
+                            className='position-absolute top-25 start-75 translate-middle text-white bg-primary px-2 rounded-circle'
                         >
                             0
                         </span>
@@ -91,7 +91,7 @@ function Navbar() {
                             className='text-secondary fs-3'
                         />
                         <span
-                            className='position-absolute top-25 start-75 translate-middle text-white bg-primary px-1 rounded-circle'
+                            className='position-absolute top-25 start-75 translate-middle text-white bg-primary px-2 rounded-circle'
                         >
                             0
                         </span>
