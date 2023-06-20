@@ -10,19 +10,19 @@ function Navbar() {
     const navbarLinks = [
         {
             name: "Home",
-            href: "#home"
+            href: "/"
         },
         {
             name: "Shop",
-            href: "#shop"
+            href: "/shop"
         },
         {
             name: "About",
-            href: "#about"
+            href: "/about"
         },
         {
             name: "Contact",
-            href: "#contact"
+            href: "/contact"
         }
     ]
 
