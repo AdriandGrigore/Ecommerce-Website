@@ -29,9 +29,9 @@ function Navbar() {
     return (
         <NavBar
             bg="white"
-            variant="light"
             expand="md"
-            fixed='top'
+            sticky='top'
+            className='pb-0'
         >
             <Container
                 className='border border-start-0 border-end-0 border-top-0 py-2 flex-wrap'
@@ -58,7 +58,7 @@ function Navbar() {
                                     <Nav.Link
                                         key={index}
                                         href={link.href}
-                                        className='ms-0 ms-md-4 py-3 py-md-2'
+                                        className='ms-0 ms-md-4 py-3 py-md-2 link-secondary'
                                     >
                                         {link.name}
                                     </Nav.Link>
