@@ -1,0 +1,15 @@
+.card {
+  transition: 0.15s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.015);
+  box-shadow: 3px 3px 6px 0 rgba(0, 0, 0, 0.096);
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1000px) {
+  .card img {
+    max-width: 650px !important ;
+  }
+}
