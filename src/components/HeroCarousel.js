@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Carousel, Image } from 'react-bootstrap'
+import { Button, Carousel } from 'react-bootstrap'
 import manModel from "../assets/manModel.jpg"
 import womanModel from "../assets/womanModel.jpg"
 import jewelry from "../assets/jewelry.jpg"
@@ -8,20 +8,24 @@ function HeroCarousel() {
     return (
         <Carousel
             variant='dark'
+            fade
         >
-            <Carousel.Item interval={1000}>
-                <Image
-                    fluid
-                    style={{ minHeight: "91vh", maxWidth: "100vw" }}
-                    src={manModel}
-                    className='w-100 object-fit-cover carousel-images'
-                    alt="First slide"
-                />
+            <Carousel.Item
+                interval={3000}
+                style={
+                    {
+                        backgroundImage: `url(${manModel})`,
+                        height: "70vh",
+                        backgroundPosition: "right"
+                    }
+                }
+            >
                 <Carousel.Caption
                     className='h-100 d-flex align-items-center justify-content-center justify-content-md-start'
                 >
                     <div
-                        className='ms-0 ms-md-5'
+                        className='ms-0 ms-md-5 bg-light bg-opacity-75'
+                        style={{ padding: "5.5rem", borderRadius: "16% 84% 58% 42% / 44% 44% 56% 56%", border: "1px solid #e1e1e1" }}
                     >
                         <h1
                             className='display-1'
@@ -43,19 +47,22 @@ function HeroCarousel() {
                     </div>
                 </Carousel.Caption>
             </Carousel.Item>
-            <Carousel.Item interval={1000}>
-                <Image
-                    fluid
-                    src={womanModel}
-                    className='w-100 object-fit-cover carousel-images'
-                    style={{ minHeight: "91vh", maxWidth: "100vw" }}
-                    alt="Second slide"
-                />
+            <Carousel.Item
+                interval={3000}
+                style={
+                    {
+                        backgroundImage: `url(${womanModel})`,
+                        height: "70vh",
+                        backgroundPosition: "right"
+                    }
+                }
+            >
                 <Carousel.Caption
                     className='h-100 d-flex align-items-center justify-content-center justify-content-md-start'
                 >
                     <div
-                        className='ms-0 ms-md-5'
+                        className='ms-0 ms-md-5 bg-light bg-opacity-75'
+                        style={{ padding: "5.5rem", borderRadius: "16% 84% 58% 42% / 44% 44% 56% 56%", border: "1px solid #e1e1e1" }}
                     >
                         <h1
                             className='display-1'
@@ -77,19 +84,23 @@ function HeroCarousel() {
                     </div>
                 </Carousel.Caption>
             </Carousel.Item>
-            <Carousel.Item>
-                <Image
-                    fluid
-                    src={jewelry}
-                    className='w-100 object-fit-cover carousel-images'
-                    style={{ minHeight: "91vh", maxWidth: "100vw" }}
-                    alt="Third slide"
-                />
+            <Carousel.Item
+                style={
+                    {
+                        backgroundImage: `url(${jewelry})`,
+                        height: "70vh",
+                        backgroundPosition: "right"
+                    }
+                }
+            >
                 <Carousel.Caption
                     className='h-100 d-flex align-items-center justify-content-center justify-content-md-start'
                 >
                     <div
-                        className='ms-0 ms-md-5'
+                        className='ms-0 ms-md-5 bg-light bg-opacity-75'
+                        style={{
+                            padding: "5.5rem", borderRadius: "22% 78% 63% 37% / 45% 46% 54% 55%", border: "1px solid #e1e1e1"
+                        }}
                     >
                         <h1
                             className='display-1'
