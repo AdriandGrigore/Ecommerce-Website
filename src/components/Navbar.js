@@ -4,6 +4,8 @@ import NavBar from 'react-bootstrap/Navbar'
 import logo from '../assets/MangataLogo.png'
 import { AiOutlineShoppingCart, AiOutlineHeart } from 'react-icons/ai'
 import { CgProfile } from 'react-icons/cg'
+import { Link } from 'react-router-dom'
+import "../css/Navbar.css"
 
 function Navbar() {
 
@@ -28,16 +30,16 @@ function Navbar() {
 
     return (
         <NavBar
-            bg="white"
+            style={{ backgroundColor: "whitesmoke" }}
             expand="md"
             sticky='top'
-            className='pb-0'
+            className='pb-0 border border-start-0 border-end-0 border-top-0'
         >
             <Container
-                className='border border-start-0 border-end-0 border-top-0 py-2 flex-wrap'
+                className='py-2 flex-wrap'
             >
                 <NavBar.Brand
-                    href="#home"
+                    href="/#"
                 >
                     <Image
                         src={logo}
@@ -50,18 +52,18 @@ function Navbar() {
                     id="responsive-navbar-nav"
                 >
                     <Nav
-                        className="ms-0 ms-md-3 fs-5 fw-bold"
+                        className="ms-0 ms-md-3 fs-5"
                     >
                         {
                             navbarLinks.map((link, index) => {
                                 return (
-                                    <Nav.Link
+                                    <Link
                                         key={index}
-                                        href={link.href}
-                                        className='ms-0 ms-md-4 py-3 py-md-2 link-secondary'
+                                        to={link.href}
+                                        className='px-3 py-3 py-md-2 navbar-links fs-5 me-0 me-md-2'
                                     >
                                         {link.name}
-                                    </Nav.Link>
+                                    </Link>
                                 )
                             })
                         }
