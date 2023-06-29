@@ -3,6 +3,8 @@ import Navbar from "../components/Navbar"
 import HeroCarousel from '../components/HeroCarousel'
 import CategoryGrid from '../components/CategoryGrid'
 import Footer from '../components/Footer'
+import ProductList from '../components/ProductList'
+import { Container } from 'react-bootstrap'
 
 function Home() {
     return (
@@ -10,6 +12,17 @@ function Home() {
             <Navbar />
             <HeroCarousel />
             <CategoryGrid />
+            <Container
+                fluid
+                style={{ backgroundColor: "whitesmoke" }}
+            >
+                <Container>
+                    <h1 className='display-5 fw-bold mb-0'>
+                        PRODUCT OVERVIEW
+                    </h1>
+                </Container>
+            </Container>
+            <ProductList />
             <Footer />
         </>
     )
