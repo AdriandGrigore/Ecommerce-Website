@@ -9,7 +9,8 @@ function CategoryGrid() {
     return (
         <Stack
             direction='horizontal'
-            className='flex-wrap justify-content-center my-5 mx-2'
+            style={{ backgroundColor: "whitesmoke" }}
+            className='flex-wrap justify-content-center py-5 px-2'
             gap={4}
         >
             <div

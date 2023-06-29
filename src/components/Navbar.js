@@ -30,7 +30,7 @@ function Navbar() {
 
     return (
         <NavBar
-            style={{ backgroundColor: "whitesmoke" }}
+            style={{ backgroundColor: "white" }}
             expand="md"
             sticky='top'
             className='pb-0 border border-start-0 border-end-0 border-top-0'
