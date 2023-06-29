@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Button, Container, Image, Spinner } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchProducts, filterCategory } from '../features/productListSlice'
-import { AiOutlineHeart } from 'react-icons/ai'
+import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai'
 import { TbFaceIdError } from 'react-icons/tb'
 import "../css/ProductList.css"
 
@@ -10,6 +10,7 @@ function ProductList() {
     const dispatch = useDispatch()
     const { productListLoading, productListError, filteredList } = useSelector((state) => state.productList)
     const [categoryButton, setCategoryButton] = useState("All Products")
+    const [favoriteBtn, setFavoriteBtn] = useState([])
 
     useEffect(() => {
         const fetchProduct = () => {
@@ -22,6 +23,14 @@ function ProductList() {
         setCategoryButton(e.target.innerText)
         dispatch(filterCategory(e.target.id))
     }
+
+    const handleFavoriteClick = (productId) => {
+        if (favoriteBtn.includes(productId)) {
+            setFavoriteBtn(favoriteBtn.filter((btn) => btn !== productId));
+        } else {
+            setFavoriteBtn([...favoriteBtn, productId]);
+        }
+    };
 
     const categoryButtons = [
         {
@@ -193,10 +202,17 @@ function ProductList() {
                                                 ${product.price}
                                             </p>
                                             <Button
+                                                id={product.id}
                                                 variant='ligth'
                                                 className='fs-3'
+                                                onClick={() => handleFavoriteClick(product.id)}
                                             >
-                                                <AiOutlineHeart />
+                                                {
+                                                    favoriteBtn.includes(product.id)
+                                                        ? <AiFillHeart className='text-danger' />
+                                                        : <AiOutlineHeart />
+                                                }
+
                                             </Button>
                                         </div>
                                     </div>
