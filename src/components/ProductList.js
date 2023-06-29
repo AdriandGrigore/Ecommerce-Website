@@ -160,14 +160,24 @@ function ProductList() {
                                 return (
                                     <div
                                         key={product.id}
-                                        className='product-card position-relative'
+                                        className='product-card'
                                     >
-                                        <Image
-                                            src={product.image}
-                                            alt='productImage'
-                                            className='object-fit-contain'
-                                            style={{ height: "300px", width: "300px" }}
-                                        />
+                                        <div
+                                            className='position-relative w-100 card-image'
+                                        >
+                                            <Image
+                                                src={product.image}
+                                                alt='productImage'
+                                                className='object-fit-contain'
+                                                style={{ height: "300px", width: "300px" }}
+                                            />
+                                            <Button
+                                                variant='dark'
+                                                className='quick-view-button'
+                                            >
+                                                Quick View
+                                            </Button>
+                                        </div>
                                         <p
                                             className='pt-4 ps-3 text-start mb-0'
                                             title={product.title}
@@ -189,11 +199,6 @@ function ProductList() {
                                                 <AiOutlineHeart />
                                             </Button>
                                         </div>
-                                        <Button
-                                            className='quick-view-button'
-                                        >
-                                            Quick View
-                                        </Button>
                                     </div>
                                 )
                             })}

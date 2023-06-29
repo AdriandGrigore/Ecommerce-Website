@@ -29,11 +29,15 @@
   animation: card 0.2s ease-in-out;
 }
 
-.product-card:hover .quick-view-button {
+.card-image img {
+  transition: 0.6s all;
+}
+
+.card-image:hover .quick-view-button {
   display: block;
 }
 
-.product-card:hover img {
+.card-image:hover img {
   transition: 0.6s ease-in-out;
   transform: scale(1.1);
 }
@@ -50,20 +54,12 @@
   position: absolute;
   left: 0px;
   right: 0px;
-  bottom: 95px;
+  bottom: -20px;
   margin-inline: auto;
-  padding: 0.7rem 1.8rem 0.7rem 1.8rem;
-  border: none;
+  padding: 0.6rem 1.8rem 0.6rem 1.8rem;
   border-radius: 25px;
   font-size: 1.25rem;
-  background-color: rgb(32, 32, 32);
-  color: rgb(255, 255, 255);
   animation: quick-view-button 0.5s ease-in-out;
-}
-
-.quick-view-button:hover {
-  background-color: rgb(238, 237, 237);
-  color: rgb(0, 0, 0);
 }
 
 @keyframes card {
@@ -77,7 +73,7 @@
 
 @keyframes quick-view-button {
   0% {
-    transform: translateY(13px);
+    transform: translateY(15px);
     opacity: 0;
   }
   100% {
