@@ -102,12 +102,13 @@ function ProductList() {
             style={
                 {
                     minHeight: "50vh",
-                    backgroundColor: "whitesmoke"
+                    backgroundColor: "whitesmoke",
+                    paddingTop: "2rem"
                 }
             }
         >
             <Container
-                className='pt-5 text-center text-md-start'
+                className='pt-3 text-center text-md-start'
             >
                 {categoryButtons.map((button, index) => {
                     return (
