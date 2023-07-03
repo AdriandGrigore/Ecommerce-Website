@@ -17,7 +17,10 @@ function Home() {
                 style={{ backgroundColor: "whitesmoke" }}
             >
                 <Container>
-                    <h1 className='display-5 mb-0'>
+                    <h1
+                        className='display-5 mb-0'
+                        style={{ fontWeight: "500" }}
+                    >
                         PRODUCT OVERVIEW
                     </h1>
                 </Container>
