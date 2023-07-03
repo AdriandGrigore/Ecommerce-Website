@@ -5,6 +5,7 @@ const initialState = {
     productList: [],
     filteredList: [],
     productListError: false,
+    categoryButton: "All Products"
 }
 
 export const fetchProducts = createAsyncThunk("fetchProducts", async () => {
@@ -19,6 +20,7 @@ const productListSlice = createSlice({
     initialState,
     reducers: {
         filterCategory: ((state, { payload }) => {
+            state.categoryButton = payload
             state.filteredList =
                 payload === "All Products"
                     ? state.productList
@@ -33,6 +35,7 @@ const productListSlice = createSlice({
             state.productListLoading = false
             state.productList = payload
             state.filteredList = payload
+            state.categoryButton = "All Products"
         })
         builder.addCase(fetchProducts.rejected, (state) => {
             state.productListLoading = false

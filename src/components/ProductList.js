@@ -8,19 +8,25 @@ import "../css/ProductList.css"
 
 function ProductList() {
     const dispatch = useDispatch()
-    const { productListLoading, productListError, filteredList } = useSelector((state) => state.productList)
-    const [categoryButton, setCategoryButton] = useState("All Products")
+    const {
+        productListLoading,
+        productListError,
+        filteredList,
+        categoryButton,
+        productList
+    } = useSelector((state) => state.productList)
     const [favoriteBtn, setFavoriteBtn] = useState([])
 
     useEffect(() => {
         const fetchProduct = () => {
             dispatch(fetchProducts())
         }
-        fetchProduct()
-    }, [dispatch])
+        if (productList.length === 0) {
+            return fetchProduct()
+        }
+    }, [dispatch, productList.length])
 
     const handleClick = (e) => {
-        setCategoryButton(e.target.innerText)
         dispatch(filterCategory(e.target.id))
     }
 
@@ -117,7 +123,7 @@ function ProductList() {
                             id={button.id}
                             variant={button.variant}
                             className={button.class}
-                            style={categoryButton === button.innerText ? button.style : null}
+                            style={categoryButton === button.id ? button.style : null}
                             onClick={button.onClick}
                         >
                             {button.innerText}
