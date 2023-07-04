@@ -3,8 +3,19 @@ import { Button, Carousel } from 'react-bootstrap'
 import manModel from "../assets/manModel.jpg"
 import womanModel from "../assets/womanModel.jpg"
 import jewelry from "../assets/jewelry.jpg"
+import { useNavigate } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { filterCategory } from '../features/productListSlice'
 
 function HeroCarousel() {
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
+
+    const handleCategoryButton = (payload) => {
+        dispatch(filterCategory(payload))
+        navigate("/shop")
+    }
+
     return (
         <Carousel
             variant='dark'
@@ -28,6 +39,7 @@ function HeroCarousel() {
                         style={{ padding: "5.5rem", borderRadius: "16% 84% 58% 42% / 44% 44% 56% 56%", border: "1px solid #e1e1e1" }}
                     >
                         <h1
+                            style={{ color: "rgb(2, 84, 100)" }}
                             className='display-1'
                         >
                             Men Collection
@@ -41,6 +53,7 @@ function HeroCarousel() {
                             className='mt-3'
                             variant='warning'
                             size='lg'
+                            onClick={() => handleCategoryButton("men's clothing")}
                         >
                             Shop now
                         </Button>
@@ -65,6 +78,7 @@ function HeroCarousel() {
                         style={{ padding: "5.5rem", borderRadius: "16% 84% 58% 42% / 44% 44% 56% 56%", border: "1px solid #e1e1e1" }}
                     >
                         <h1
+                            style={{ color: "rgb(2, 84, 100)" }}
                             className='display-1'
                         >
                             Women Collection
@@ -78,6 +92,7 @@ function HeroCarousel() {
                             className='mt-3'
                             variant='warning'
                             size='lg'
+                            onClick={() => handleCategoryButton("women's clothing")}
                         >
                             Shop now
                         </Button>
@@ -103,6 +118,7 @@ function HeroCarousel() {
                         }}
                     >
                         <h1
+                            style={{ color: "rgb(2, 84, 100)" }}
                             className='display-1'
                         >
                             Jewelry Collection
@@ -116,6 +132,7 @@ function HeroCarousel() {
                             className='mt-3'
                             variant='warning'
                             size='lg'
+                            onClick={() => handleCategoryButton("jewelery")}
                         >
                             Shop now
                         </Button>
