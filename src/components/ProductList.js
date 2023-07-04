@@ -185,7 +185,6 @@ function ProductList() {
                                                 src={product.image}
                                                 alt='productImage'
                                                 className='object-fit-contain'
-                                                style={{ height: "300px", width: "300px" }}
                                             />
                                             <Button
                                                 variant='dark'
