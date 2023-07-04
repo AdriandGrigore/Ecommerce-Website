@@ -27,12 +27,12 @@ function CategoryGrid() {
                     className='position-absolute top-0 ms-4 pt-3 text-start h-100'
                 >
                     <h2
-                        className='fw-bold fs-3'
+                        className='fw-bold fs-2'
                     >
                         Men
                     </h2>
                     <p
-                        className='text-start mt-2 fs-5 text-secondary'
+                        className='text-start mt-2 fs-4'
                     >
                         Season 2023
                     </p>
@@ -52,12 +52,12 @@ function CategoryGrid() {
                     className='position-absolute top-0 ms-4 mt-3 text-start'
                 >
                     <h2
-                        className='fw-bold fs-3'
+                        className='fw-bold fs-2'
                     >
                         Women
                     </h2>
                     <p
-                        className='text-start mt-2 fs-5 text-secondary'
+                        className='text-start mt-2 fs-4'
                     >
                         Season 2023
                     </p>
@@ -77,12 +77,12 @@ function CategoryGrid() {
                     className='position-absolute top-0 ms-4 mt-3 text-start'
                 >
                     <h2
-                        className='fw-bold fs-3'
+                        className='fw-bold fs-2'
                     >
                         Jewelry
                     </h2>
                     <p
-                        className='text-start mt-2 fs-5 text-secondary'
+                        className='text-start mt-2 fs-4'
                     >
                         Season 2023
                     </p>
