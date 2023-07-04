@@ -1,11 +1,11 @@
 .navbar-links {
-  color: rgb(86, 88, 102);
+  color: rgb(2, 84, 100);
   text-decoration: none;
   transition: 0.3s ease-in-out;
 }
 
 .navbar-links:hover {
   color: white;
-  background-color: rgb(78, 79, 85);
+  background-color: rgb(2, 84, 100);
   border-radius: 7px;
 }
