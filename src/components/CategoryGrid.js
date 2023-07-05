@@ -3,9 +3,20 @@ import { Image, Stack } from 'react-bootstrap'
 import category1 from "../assets/category1.jpg"
 import category2 from "../assets/category2.jpg"
 import category3 from "../assets/category3.jpg"
+import { useNavigate } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { filterCategory } from '../features/productListSlice'
 import "../css/CategoryGrid.css"
 
 function CategoryGrid() {
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
+
+    const handleCategoryCard = (payload) => {
+        dispatch(filterCategory(payload))
+        navigate("/shop")
+    }
+
     return (
         <Stack
             direction='horizontal'
@@ -15,6 +26,7 @@ function CategoryGrid() {
         >
             <div
                 className='position-relative card'
+                onClick={() => handleCategoryCard("men's clothing")}
             >
                 <Image
                     fluid
@@ -40,6 +52,7 @@ function CategoryGrid() {
             </div>
             <div
                 className='position-relative card'
+                onClick={() => handleCategoryCard("women's clothing")}
             >
                 <Image
                     fluid
@@ -65,6 +78,7 @@ function CategoryGrid() {
             </div>
             <div
                 className='position-relative card'
+                onClick={() => handleCategoryCard("jewelery")}
             >
                 <Image
                     fluid
