@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { fetchProducts, filterCategory } from '../features/productListSlice'
 import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai'
 import { TbFaceIdError } from 'react-icons/tb'
+import { openViewProductModal } from '../features/viewProductModalSlice'
 import "../css/ProductList.css"
 
 function ProductList() {
@@ -182,6 +183,7 @@ function ProductList() {
                                             className='position-relative w-100 card-image'
                                         >
                                             <Image
+                                                loading='lazy'
                                                 src={product.image}
                                                 alt='productImage'
                                                 className='object-fit-contain'
@@ -189,6 +191,7 @@ function ProductList() {
                                             <Button
                                                 variant='dark'
                                                 className='quick-view-button'
+                                                onClick={() => dispatch(openViewProductModal(product))}
                                             >
                                                 Quick View
                                             </Button>
