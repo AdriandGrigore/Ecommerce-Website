@@ -19,6 +19,10 @@ function Navbar() {
             href: "/shop"
         },
         {
+            name: "Features",
+            href: "/features"
+        },
+        {
             name: "About",
             href: "/about"
         },

@@ -6,6 +6,7 @@ import Shop from './pages/Shop';
 import ScrollToTop from './routes/ScrollToTop';
 import { useSelector } from 'react-redux';
 import ProductModal from './components/ProductModal';
+import Features from './pages/Features';
 
 function App() {
   const { modalStatus } = useSelector(state => state.viewProductModal)
@@ -22,6 +23,10 @@ function App() {
         <Route
           path='/shop'
           element={<Shop />}
+        />
+        <Route
+          path='/features'
+          element={<Features />}
         />
       </Routes>
     </div>
