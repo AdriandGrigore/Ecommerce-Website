@@ -14,10 +14,17 @@ const viewProductModalSlice = createSlice({
             state.modalStatus = true
         }),
         closeViewProductModal: (state => {
+            state.productSelected.quantity = 1
             state.modalStatus = false
+        }),
+        increaseQuantity: (state => {
+            state.productSelected.quantity++
+        }),
+        decreaseQuantity: (state => {
+            state.productSelected.quantity--
         })
     }
 })
 
 export default viewProductModalSlice.reducer
-export const { openViewProductModal, closeViewProductModal } = viewProductModalSlice.actions
+export const { openViewProductModal, closeViewProductModal, increaseQuantity, decreaseQuantity } = viewProductModalSlice.actions

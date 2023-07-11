@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button, ButtonGroup, Col, Form, Image, Modal, Row } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
-import { closeViewProductModal } from '../features/viewProductModalSlice'
+import { closeViewProductModal, decreaseQuantity, increaseQuantity } from '../features/viewProductModalSlice'
 import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai'
 import "../css/ProductModal.css"
 
@@ -58,52 +58,56 @@ function ProductModal() {
                         >
                             {productSelected.description}
                         </p>
-                        <div>
-                            <div
-                                style={{ maxWidth: "300px" }}
-                                className='d-flex align-items-center justify-content-between gap-3 flex-wrap me-auto'
-                            >
-                                <label
-                                    htmlFor="sizes"
-                                    className='fs-5'
+                        {productSelected.category === "jewelery" || productSelected.category === "electronics"
+                            ? null
+                            :
+                            <div>
+                                <div
+                                    style={{ maxWidth: "300px" }}
+                                    className='d-flex align-items-center justify-content-between gap-3 flex-wrap me-auto'
                                 >
-                                    Size:
-                                </label>
-                                <Form.Select
-                                    id="sizes"
-                                    className='fs-5 text-dark text-center'
-                                    style={{ width: "fit-content" }}
+                                    <label
+                                        htmlFor="sizes"
+                                        className='fs-5'
+                                    >
+                                        Size:
+                                    </label>
+                                    <Form.Select
+                                        id="sizes"
+                                        className='fs-5 text-dark text-center'
+                                        style={{ width: "fit-content" }}
+                                    >
+                                        <option value="Choose a size">Choose a size</option>
+                                        <option value="Size S">Size S</option>
+                                        <option value="Size M">Size M</option>
+                                        <option value="Size L">Size L</option>
+                                        <option value="Size XL">Size XL</option>
+                                    </Form.Select>
+                                </div>
+                                <div
+                                    style={{ maxWidth: "300px" }}
+                                    className='d-flex align-items-center justify-content-between gap-3 flex-wrap me-auto my-3'
                                 >
-                                    <option value="Choose a size">Choose a size</option>
-                                    <option value="Size S">Size S</option>
-                                    <option value="Size M">Size M</option>
-                                    <option value="Size L">Size L</option>
-                                    <option value="Size XL">Size XL</option>
-                                </Form.Select>
+                                    <label
+                                        htmlFor="colors"
+                                        className='fs-5'
+                                    >
+                                        Color:
+                                    </label>
+                                    <Form.Select
+                                        id="colors"
+                                        className='fs-5 text-dark text-center text-truncate'
+                                        style={{ width: "171px" }}
+                                    >
+                                        <option value="Choose a color">Choose a color</option>
+                                        <option value="Red">Red</option>
+                                        <option value="Blue">Blue</option>
+                                        <option value="Black">Black</option>
+                                        <option value="White">White</option>
+                                    </Form.Select>
+                                </div>
                             </div>
-                            <div
-                                style={{ maxWidth: "300px" }}
-                                className='d-flex align-items-center justify-content-between gap-3 flex-wrap me-auto my-3'
-                            >
-                                <label
-                                    htmlFor="colors"
-                                    className='fs-5'
-                                >
-                                    Color:
-                                </label>
-                                <Form.Select
-                                    id="colors"
-                                    className='fs-5 text-dark text-center text-truncate'
-                                    style={{ width: "171px" }}
-                                >
-                                    <option value="Choose a color">Choose a color</option>
-                                    <option value="Red">Red</option>
-                                    <option value="Blue">Blue</option>
-                                    <option value="Black">Black</option>
-                                    <option value="White">White</option>
-                                </Form.Select>
-                            </div>
-                        </div>
+                        }
                         <div
                             style={{ maxWidth: "300px" }}
                             className='d-flex align-items-center justify-content-between gap-3 flex-wrap me-auto'
@@ -120,6 +124,8 @@ function ProductModal() {
                                 <Button
                                     variant="light"
                                     className='px-3'
+                                    disabled={productSelected.quantity === 1}
+                                    onClick={() => dispatch(decreaseQuantity())}
                                 >
                                     <AiOutlineMinus />
                                 </Button>
@@ -131,6 +137,7 @@ function ProductModal() {
                                 <Button
                                     variant="light"
                                     className='px-3'
+                                    onClick={() => dispatch(increaseQuantity())}
                                 >
                                     <AiOutlinePlus />
                                 </Button>
