@@ -33,8 +33,8 @@ const productListSlice = createSlice({
         })
         builder.addCase(fetchProducts.fulfilled, (state, { payload }) => {
             state.productListLoading = false
-            state.productList = payload
-            state.filteredList = payload
+            state.productList = payload.map(obj => ({ ...obj, quantity: 1 }))
+            state.filteredList = payload.map(obj => ({ ...obj, quantity: 1 }))
             state.categoryButton = "All Products"
         })
         builder.addCase(fetchProducts.rejected, (state) => {

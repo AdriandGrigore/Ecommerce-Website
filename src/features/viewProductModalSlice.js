@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    productSelected: { quantity: 1 },
+    productSelected: {},
     modalStatus: false
 }
 
@@ -10,7 +10,7 @@ const viewProductModalSlice = createSlice({
     initialState,
     reducers: {
         openViewProductModal: ((state, { payload }) => {
-            state.productSelected = { ...state.productSelected, ...payload }
+            state.productSelected = payload
             state.modalStatus = true
         }),
         closeViewProductModal: (state => {
