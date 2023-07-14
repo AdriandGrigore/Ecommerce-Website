@@ -4,17 +4,17 @@ import Home from './pages/Home';
 import { Route, Routes } from 'react-router-dom';
 import Shop from './pages/Shop';
 import ScrollToTop from './routes/ScrollToTop';
-import { useSelector } from 'react-redux';
 import ProductModal from './components/ProductModal';
 import Features from './pages/Features';
+import CartNotification from './components/CartNotification';
 
 function App() {
-  const { modalStatus } = useSelector(state => state.viewProductModal)
 
   return (
     <div className="App">
       <ScrollToTop />
       <ProductModal />
+      <CartNotification />
       <Routes>
         <Route
           path='/'
