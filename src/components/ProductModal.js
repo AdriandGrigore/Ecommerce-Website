@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { closeViewProductModal, decreaseQuantity, increaseQuantity } from '../features/viewProductModalSlice'
 import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai'
 import { addItemToCart, increaseCartItemQt } from '../features/cartSlice'
+import { showCartNotification } from '../features/cartNotificationSlice'
 import "../css/ProductModal.css"
 
 function ProductModal() {
@@ -15,10 +16,12 @@ function ProductModal() {
     const addItemToShoppingCart = (product, amount) => {
         const productAlreadyInCart = cartItems.find(pr => pr.id === product.id)
         if (productAlreadyInCart === undefined) {
-            return dispatch(addItemToCart(product))
+            dispatch(addItemToCart(product))
         } else {
-            return dispatch(increaseCartItemQt({ id: product.id, amount: Number(amount) }))
+            dispatch(increaseCartItemQt({ id: product.id, amount: Number(amount) }))
         }
+        dispatch(closeViewProductModal())
+        dispatch(showCartNotification("success"))
     }
 
     return (
