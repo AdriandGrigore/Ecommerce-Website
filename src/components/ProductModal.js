@@ -3,12 +3,23 @@ import { Button, ButtonGroup, Col, Form, Image, Modal, Row } from 'react-bootstr
 import { useDispatch, useSelector } from 'react-redux'
 import { closeViewProductModal, decreaseQuantity, increaseQuantity } from '../features/viewProductModalSlice'
 import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai'
+import { addItemToCart, increaseCartItemQt } from '../features/cartSlice'
 import "../css/ProductModal.css"
 
 function ProductModal() {
     const { productSelected } = useSelector(state => state.viewProductModal)
+    const { cartItems } = useSelector(state => state.cart)
     const { modalStatus } = useSelector(state => state.viewProductModal)
     const dispatch = useDispatch()
+
+    const addItemToShoppingCart = (product, amount) => {
+        const productAlreadyInCart = cartItems.find(pr => pr.id === product.id)
+        if (productAlreadyInCart === undefined) {
+            return dispatch(addItemToCart(product))
+        } else {
+            return dispatch(increaseCartItemQt({ id: product.id, amount: Number(amount) }))
+        }
+    }
 
     return (
         <Modal
@@ -147,6 +158,7 @@ function ProductModal() {
                             variant='warning'
                             size='lg'
                             className='fs-5 d-block mx-auto mt-5'
+                            onClick={() => addItemToShoppingCart(productSelected, productSelected.quantity)}
                         >
                             ADD TO CART
                         </Button>
