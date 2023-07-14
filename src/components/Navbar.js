@@ -5,10 +5,11 @@ import logo from '../assets/MangataLogo.png'
 import { AiOutlineShoppingCart, AiOutlineHeart } from 'react-icons/ai'
 import { CgProfile } from 'react-icons/cg'
 import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 import "../css/Navbar.css"
 
 function Navbar() {
-
+    const { cartItems } = useSelector(state => state.cart)
     const navbarLinks = [
         {
             name: "Home",
@@ -86,7 +87,7 @@ function Navbar() {
                         <span
                             className='position-absolute top-25 start-75 translate-middle text-white bg-primary px-2 rounded-circle'
                         >
-                            0
+                            {cartItems.length}
                         </span>
                     </Button>
                     <Button
