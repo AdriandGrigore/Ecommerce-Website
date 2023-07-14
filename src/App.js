@@ -14,7 +14,7 @@ function App() {
   return (
     <div className="App">
       <ScrollToTop />
-      {modalStatus ? <ProductModal /> : null}
+      <ProductModal />
       <Routes>
         <Route
           path='/'
