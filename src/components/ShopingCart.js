@@ -6,6 +6,7 @@ import { decreaseCartItemQt, increaseCartItemQt, removeCartItem } from '../featu
 import { CiCircleRemove } from 'react-icons/ci'
 import { BsCartX } from 'react-icons/bs'
 import { Link } from 'react-router-dom'
+import { showCartNotification } from '../features/cartNotificationSlice'
 
 function ShopingCart() {
     const { cartItems } = useSelector((state) => state.cart)
@@ -31,6 +32,11 @@ function ShopingCart() {
             setInputValue({ country: "", city: "" })
             return setShippingTax(Math.random().toFixed(2) * 100)
         }
+    }
+
+    const removeItemFromCart = (id) => {
+        dispatch(removeCartItem(id))
+        dispatch(showCartNotification("danger"))
     }
 
     return (
@@ -105,7 +111,7 @@ function ShopingCart() {
                                                         <Button
                                                             variant='none'
                                                             size='sm'
-                                                            onClick={() => dispatch(removeCartItem(item.id))}
+                                                            onClick={() => removeItemFromCart(item.id)}
                                                         >
                                                             <CiCircleRemove
                                                                 className='display-6 text-danger'
