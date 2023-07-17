@@ -8,20 +8,20 @@ import { BsCartX } from 'react-icons/bs'
 import { Link } from 'react-router-dom'
 import { showCartNotification } from '../features/cartNotificationSlice'
 
+const getSubtotal = (items) => {
+    var subtotal = 0
+    items.forEach(item => {
+        subtotal += item.quantity * item.price
+    })
+    return subtotal
+}
+
 function ShopingCart() {
     const { cartItems } = useSelector((state) => state.cart)
     const [inputValue, setInputValue] = useState({ country: "", city: "" })
     const [updateTotalErr, setUpdateTotalErr] = useState(false)
     const [shippingTax, setShippingTax] = useState(0)
     const dispatch = useDispatch()
-
-    const getSubtotal = () => {
-        var subtotal = 0
-        cartItems.forEach(item => {
-            subtotal += item.quantity * item.price
-        })
-        return subtotal
-    }
 
     const updateTotals = () => {
         if (inputValue.country === "" || inputValue.city === "") {
@@ -201,7 +201,7 @@ function ShopingCart() {
                                         Subtotal:
                                     </p>
                                     <p>
-                                        ${getSubtotal().toFixed(2)}
+                                        ${getSubtotal(cartItems).toFixed(2)}
                                     </p>
                                 </div>
                                 <div
@@ -279,7 +279,7 @@ function ShopingCart() {
                                             Total:
                                         </h1>
                                         <p className='mb-0 fs-5'>
-                                            ${(getSubtotal() + shippingTax).toFixed(2)}
+                                            ${(getSubtotal(cartItems) + shippingTax).toFixed(2)}
                                         </p>
                                     </div>
                                 </div>
@@ -301,3 +301,4 @@ function ShopingCart() {
 }
 
 export default ShopingCart
+export { getSubtotal }
