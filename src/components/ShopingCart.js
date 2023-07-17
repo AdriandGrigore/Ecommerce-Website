@@ -56,7 +56,7 @@ function ShopingCart() {
                         Home
                     </Breadcrumb.Item>
                     <Breadcrumb.Item active>
-                        ShopingCart
+                        ShoppingCart
                     </Breadcrumb.Item>
                 </Breadcrumb>
             </Container>
@@ -71,10 +71,19 @@ function ShopingCart() {
                             className='display-1 text-danger mb-4'
                         />
                         <h1
-                            className='display-5 text-uppercase'
+                            className='display-5 fs-3 my-3'
+                            style={{ maxWidth: "640px", lineHeight: "40px" }}
                         >
-                            No items in cart
+                            Looks like you have no items in your shopping cart. Click the button below to continue shopping
                         </h1>
+                        <Button
+                            as={Link}
+                            to="/shop"
+                            variant='outline-dark'
+                            className='mt-3 py-2'
+                        >
+                            Go to shop
+                        </Button>
                     </div>
                     :
                     <Row
