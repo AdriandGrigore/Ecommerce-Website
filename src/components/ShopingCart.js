@@ -285,8 +285,8 @@ function ShopingCart() {
                                 </div>
                                 <Button
                                     variant='warning'
-                                    className='mt-4 text-uppercase p-3 fs-5'
                                     size='md'
+                                    className='mt-4 text-uppercase p-3'
                                     style={{ borderRadius: "15px", fontWeight: "500" }}
                                 >
                                     Proceed to checkout
